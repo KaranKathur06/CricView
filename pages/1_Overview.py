@@ -2,6 +2,7 @@
 📊 Overview — Global KPIs, Trends, and Insights
 """
 
+import pages._path_setup  # noqa: F401 — must be first
 import streamlit as st
 import pandas as pd
 from components.styles import inject_global_css

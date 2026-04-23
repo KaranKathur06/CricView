@@ -8,9 +8,8 @@ __pycache__/
 *$py.class
 *.pyc
 
-# Data files (large, regenerate with ETL)
+# Data files (SQLite is large, parquet is committed for deployment)
 data/cricket.db
-data/processed/
 
 # IDE
 .idea/

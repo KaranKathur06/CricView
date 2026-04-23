@@ -4,6 +4,14 @@
 Entry point for the Streamlit multi-page application.
 """
 
+import sys
+from pathlib import Path
+
+# Ensure project root is on sys.path for all deployment platforms
+PROJECT_ROOT = str(Path(__file__).resolve().parent)
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
 import streamlit as st
 from components.styles import inject_global_css
 
