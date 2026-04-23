@@ -2,6 +2,7 @@
 📈 Overall Analysis — Historical Trends & Intelligence
 """
 
+import pages._path_setup  # noqa: F401 — must be first
 import streamlit as st
 import pandas as pd
 import numpy as np
