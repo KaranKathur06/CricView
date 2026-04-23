@@ -1,160 +1,210 @@
-# CricView — Cricket Intelligence Platform 🏏
+# 🏏 CricView — Cricket Intelligence Platform
 
-> A production-grade T20 International cricket analytics dashboard built with Streamlit, powered by ~2,500 Cricsheet match files.
+> A modern, data-driven cricket intelligence platform delivering advanced analytics, player insights, and performance intelligence across formats.
 
-## 🚀 Quick Start
+---
 
-```bash
-# 1. Create virtual environment
-python -m venv venv
-.\venv\Scripts\activate   # Windows
-source venv/bin/activate  # Mac/Linux
+## 🚀 Overview
 
-# 2. Install dependencies
-pip install -r requirements.txt
+CricView transforms raw cricket data into actionable insights through a scalable analytics engine and interactive dashboard system.
 
-# 3. Run ETL pipeline (one-time, ~50 seconds)
-python scripts/ingest.py
+Built with a focus on **performance, modular architecture, and future SaaS scalability**, this platform enables deep exploration of player performance, team dynamics, and match intelligence.
 
-# 4. Launch the app
-streamlit run app.py
-```
+---
 
-## 📊 Dashboard Pages
+## ✨ Key Features
 
-| Page | Description |
-|---|---|
-| **Overview** | Global KPIs, scoring trends, boundary evolution, toss analysis, venue intelligence |
-| **Player Stats** | Individual player deep-dive with career summary, phase splits, opponent matchups, innings log |
-| **Comparison** | Player vs Player radar charts, Team vs Team head-to-head records |
-| **Overall Analysis** | Historical trends, batting/bowling all-time records, partnerships |
-| **Team Analytics** | Team performance with opponent filter, phase analysis, toss impact |
-| **Year Explorer** | Season-by-season breakdown, team standings, top performers, match results |
+* 📊 **Advanced Analytics Dashboard**
+
+  * Global KPIs, scoring trends, boundary evolution
+  * Toss impact and venue intelligence
+
+* 🏏 **Player Intelligence System**
+
+  * Career summaries
+  * Phase-wise performance (Powerplay, Middle, Death)
+  * Opponent-based analysis
+  * Innings-level breakdown
+
+* ⚔️ **Comparison Engine**
+
+  * Player vs Player
+  * Team vs Team
+  * Radar-based performance visualization
+
+* 📈 **Historical & Trend Analysis**
+
+  * Year-wise performance evolution
+  * Record tracking
+  * Partnership insights
+
+* 🏟️ **Team Analytics**
+
+  * Team performance across conditions
+  * Opponent filtering
+  * Match outcome patterns
+
+* ⚡ **High-Performance Data Engine**
+
+  * JSON → SQLite → Parquet pipeline
+  * Sub-second query performance
+  * Optimized for large-scale datasets
+
+---
+
+## 🧠 Why This Project
+
+This project is designed as a foundation for a **next-generation cricket analytics platform**.
+
+Instead of being just a dashboard, CricView focuses on:
+
+* Structured data engineering
+* Scalable analytics architecture
+* Extensibility toward SaaS products
+* Multi-format cricket intelligence (T20 → ODI → Test)
+
+---
+
+## 📊 Data Scale
+
+| Metric            | Value      |
+| ----------------- | ---------- |
+| Matches Processed | 2,500+     |
+| Deliveries        | 500,000+   |
+| Players           | 2,800+     |
+| Venues            | 300+       |
+| Years Covered     | 2005–2024  |
+| Cold Start Time   | < 1 second |
+
+---
 
 ## 🏗️ Architecture
 
 ```
 CricView/
-├── app.py                    ← Entry point
-├── pages/                    ← 6 Streamlit pages
-├── src/                      ← Analysis modules (batting, bowling, team, charts)
-├── components/               ← Reusable UI components (KPI cards, filters, CSS)
-├── config/                   ← Theme, constants
-├── scripts/ingest.py         ← ETL: JSON → SQLite → Parquet
+├── app.py                  # Entry point
+├── pages/                  # Multi-page dashboard
+├── src/                    # Core analytics modules
+├── components/             # Reusable UI components
+├── config/                 # Theme and constants
+├── scripts/
+│   └── ingest.py           # ETL pipeline
 ├── data/
-│   ├── cricket.db            ← SQLite database
-│   └── processed/            ← 9 parquet cache files
-└── .streamlit/config.toml    ← Dark theme
+│   ├── cricket.db          # SQLite database
+│   └── processed/          # Parquet cache
+└── .streamlit/             # UI configuration
 ```
 
-## 📈 Data Scale
+---
 
-| Metric | Value |
-|---|---|
-| JSON match files processed | 3,798 |
-| Valid T20I matches | 2,503 |
-| Ball-by-ball deliveries | 567,679 |
-| Unique batters | 2,889 |
-| Unique bowlers | 2,396 |
-| Venues | 307 |
-| Years covered | 2005–2024 |
-| Cold start time | < 1 second (from parquet) |
+## ⚙️ Data Pipeline
+
+```
+Raw JSON (Cricsheet)
+        ↓
+Data Cleaning & Normalization
+        ↓
+SQLite Database (Structured Storage)
+        ↓
+Parquet Cache (Optimized Reads)
+        ↓
+Streamlit Dashboard (UI Layer)
+```
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** Streamlit 1.56+
-- **Charts:** Plotly 6.7
-- **Data:** Pandas + PyArrow (Parquet)
-- **Database:** SQLite
-- **ML:** scikit-learn (for future predictive models)
+* **Frontend:** Streamlit
+* **Visualization:** Plotly
+* **Data Processing:** Pandas, NumPy
+* **Storage:** SQLite + Parquet
+* **ML (Planned):** scikit-learn
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Clone repository
+git clone https://github.com/KaranKathur06/CricView.git
+cd CricView
+
+# Create virtual environment
+python -m venv venv
+
+# Activate environment
+# Windows
+venv\Scripts\activate
+# Mac/Linux
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run data pipeline (one-time)
+python scripts/ingest.py
+
+# Start application
+streamlit run app.py
+```
+
+---
+
+## 📸 Preview
+
+> Add screenshots or demo video here
+> (Dashboard, Player Stats, Comparison, etc.)
+
+---
+
+## 🧩 Current Limitations
+
+* T20 format only (multi-format expansion planned)
+* No user authentication (SaaS layer upcoming)
+* No real-time data ingestion yet
+* Limited predictive analytics (planned)
+
+---
+
+## 🚀 Future Roadmap
+
+* 🌐 Multi-format support (ODI, Test, Leagues)
+* 👤 User accounts & personalization
+* 📊 Advanced metrics (Impact Score, Consistency Index)
+* 🤖 Predictive analytics & match simulations
+* ⚡ API layer for external integrations
+* 💰 SaaS monetization model
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.
+
+If you’d like to improve the platform:
+
+* Fork the repository
+* Create a feature branch
+* Submit a pull request
+
+---
 
 ## 📄 License
 
-@[LICENSE](LICENSE)
-
-#
-
-# **`CricView` License Agreement**
-
-Copyright (c) 2026 Karan Kathur
-
-**Effective Date:** April 23, 2026
-
-**Version:** 1.0
+This project is licensed under the MIT License.
 
 ---
 
-## **1. Acceptance of Terms**
+## 👤 Author
 
-By accessing or using **CricView** (hereinafter referred to as the “Software,” “Project,” or “Application”), you agree to be bound by the terms and conditions of this License Agreement. If you do not agree to all terms, you may not use the Software.
-
----
-
-## **2. Grant of License**
-
-**CricView** is provided under the **MIT License**. Subject to the terms of this Agreement, the Licensor grants you a non-exclusive, royalty-free, perpetual, irrevocable license to:
-
-1.  **Use:** Use the Software for any purpose, including commercial use.
-2.  **Modify:** Modify, adapt, translate, or create derivative works based on the Software.
-3.  **Distribute:** Distribute copies of the Software or derivative works.
-4.  **Sublicense:** Sublicense the Software, provided the sublicensee agrees to the terms of this License.
-5.  **Display and Perform:** Display and perform the Software publicly.
+**Karan Kathur**
+GitHub: https://github.com/KaranKathur06
 
 ---
 
-## **3. Source Code and Distribution**
+## ⭐ Final Note
 
-When distributing the Software or derivative works, you must:
+This project is evolving toward a **full-scale cricket intelligence platform**, focusing on performance analytics, scalable systems, and real-world product design.
 
-1.  **Retain License:** Keep the original license notice and copyright notice.
-2.  **Indicate Changes:** Clearly indicate any changes you have made to the Software.
-3.  **Provide License:** Include a copy of this MIT License with the distribution.
-
----
-
-## **4. Limitations**
-
-- **No Warranty:** The Software is provided “as is,” without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.
-- **No Liability:** In no event shall the Licensor be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
-- **No Support:** The Licensor is not obligated to provide maintenance, support, updates, or enhancements for the Software.
-
----
-
-## **5. Data Usage and Attribution**
-
-- **Cricsheet Data:** This project uses data from [Cricsheet](https://cricsheet.org/), which is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). Users must comply with Cricsheet's terms and provide appropriate attribution.
-- **Attribution Requirement:** When distributing CricView or derivative works, you must credit the original creators and Cricsheet as the data source.
-
----
-
-## **6. Intellectual Property**
-
-All intellectual property rights in the Software, including copyright and trade secrets, belong to **Karan Kathur**. No ownership rights are transferred to the licensee under this Agreement.
-
----
-
-## **7. Termination**
-
-This License Agreement terminates automatically if you fail to comply with any of its terms or conditions. Upon termination, you must immediately cease all use of the Software and destroy all copies.
-
----
-
-## **8. Modifications**
-
-This License Agreement may be updated from time to time. Material changes will be communicated through updates to the project documentation. Continued use of the Software after changes constitutes acceptance of the revised terms.
-
----
-
-## **9. Governing Law**
-
-This License Agreement shall be governed by and construed in accordance with the laws of **India**, without regard to its conflict of law principles.
-
----
-
-## **10. Contact Information**
-
-For questions regarding this License Agreement, please contact:
-
-**Karan Kathur**  
-**Email:** [EMAIL_ADDRESS]  
-**GitHub:** [https://github.com/KaranKathur06](https://github.com/KaranKathur06)
+If you found this useful, consider giving it a ⭐
